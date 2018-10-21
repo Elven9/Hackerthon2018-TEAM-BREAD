@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Fuck you mb"/>
+    <HelloWorld msg="Test For Merge"/>
   </div>
 </template>
 
