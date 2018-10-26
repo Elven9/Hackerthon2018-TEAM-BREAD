@@ -12,7 +12,8 @@ module.exports = {
       resolve: {
         alias: {
           'page': Path.resolve(__dirname, 'src/views/page/'),
-          'view': Path.resolve(__dirname, 'src/views/')
+          'views': Path.resolve(__dirname, 'src/views/'),
+          'assets': Path.resolve(__dirname, 'src/assets/')
         }
       },
       plugins: [

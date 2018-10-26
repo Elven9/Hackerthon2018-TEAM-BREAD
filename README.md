@@ -21,10 +21,15 @@ npm run serve
 import 'Component' from "@/components/Component";
 
 // 引入 src/views:
-import 'Component' from "view/Component";
+import 'Component' from "views/Component";
 
 // 引入 src/views/page:
 import 'PageComponent' from "page/PageComponent";
+```
+
+```html
+<!-- Import Img -->
+<img src="assets/page.svg">
 ```
 
 ### GIT 流程
