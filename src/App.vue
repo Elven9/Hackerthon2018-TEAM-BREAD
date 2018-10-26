@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-    <Header />
+    <Header id="header" />
     <router-view/>
-    <Footer />
   </div>
 </template>
 
@@ -19,4 +18,7 @@ export default {
 </script>
 
 <style lang="scss">
+  #header {
+    height: 10%;
+  } 
 </style>
