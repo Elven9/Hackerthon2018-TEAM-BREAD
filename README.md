@@ -27,6 +27,61 @@ import 'Component' from "view/Component";
 import 'PageComponent' from "page/PageComponent";
 ```
 
+### GIT 流程
+
+#### 觀看 status
+```sh
+git status
+```
+可以觀看目前有沒有什麼已經修改的 file.
+#### Commit
+
+```sh
+git add .
+git commit -m "commit message."
+```
+
+#### 上傳 code 到遠端 github
+```sh
+git push
+```
+
+#### 把 code 下載（sync）到本機
+```sh
+git pull
+```
+
+#### 更換 branch
+```sh
+git checkout destination-branch-name
+```
+
+#### Merge 流程
+**Important**: 一定要確認自己的 code 是否正確，尤其是 merge 到 master 的時候
+
+```sh
+# 現在在自己的 branch，比如說剛剛在我自己的 branch 開發完一隻新的 feature，現在想要 merge 到 master
+
+# 先 sync 遠端的 code.
+git checkout master       # 切換到 master
+git pull                  # 拉回遠端的 code
+
+# 回到自己的 branch 先更新自己的 code ，看有沒有 conflict 需要解
+git checkout MB           # 切換到我自己的 branch
+git merge --no-ff master  # Merge 回剛剛從遠端拉回來的 code ，更新一下
+
+# 最後再切回去 master 去 merge
+git checkout master
+git merge --no-ff MB      # 把自己 branch 的新 feature 合併到 master
+
+# 上傳回遠端
+git push
+```
+
+### GIT 開發流程使用慣例
+我們每個人都會有一隻自己的 branch。
+在自己的 branch 開發完後，確認**毫無**bug以後，在 merge 回 master
+
 ### 開發慣例：
 1. import .vue 檔時，在來源地址中不用加.vue
 ```js
