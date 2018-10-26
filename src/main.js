@@ -8,6 +8,9 @@ import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(BootstrapVue);
 
+// Add lodash
+Vue.prototype._ = require('lodash');
+
 Vue.config.productionTip = false
 
 new Vue({
