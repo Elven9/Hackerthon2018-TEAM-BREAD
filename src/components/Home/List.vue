@@ -67,11 +67,10 @@ export default {
     background-color: RGBA(0, 0, 0, 0.3);
     overflow: hidden;
     #MenuButton {
-      img {
-        margin-top: 2px;
-        margin-left: -5px;
-        height: 12vw;
-      }
+      margin-top: 25px;
+      margin-left: 10px;
+      width: 10vw;
+      height: 10vh;
     }
     .list-container {
       width: 70vw;
@@ -88,7 +87,7 @@ export default {
           margin: 6%;
         }
         #ProfileText{
-          color: var(--bg_blue);
+          color: var(--bg_white);
           font-size: 6vw;
         }
       }
