@@ -5,6 +5,9 @@
 </template>
 
 <script>
+// Import API
+import { request } from "@/api/main.js";
+
 export default {
   components: {
 
@@ -24,8 +27,8 @@ export default {
 
   },
   mounted() {
-    
-  },
+
+  }
 }
 </script>
 
