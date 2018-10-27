@@ -75,6 +75,8 @@ export default {
 <style lang="scss">
 #Header{
   margin-top: 3%;
+  background-color: transparent;
+  z-index: 9999;
 }
 .secondBar{
     margin-top: 1%;
