@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="tit_w">
     <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
     <div id="title-wrapper">
       <img id="leftBar" src="@/assets/img/svg/node_data/leftBar.svg" alt="leftBar" @click="isLeftListOpen=true"/>
@@ -31,29 +31,25 @@ export default {
 </script>
 
 <style lang="scss">
-  #left {
+  #tit_w {
+    height: var(--header_height);
     width: 100vw;
-    height: 100vh;
-    z-index: 1;
-    #list {
-      
-    }
-  }
-  #title-wrapper {
-    position: fixed;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 10vh;
-    width: 100vw;
-    background-color: var(--bg_blue);
-    #leftBar {
-      height: 4vh;
-      margin: 3vh;
-    }
-    #tit {
-      color: white;
-      font-size: 4vh;
+    #title-wrapper {
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      height: var(--header_height);
+      align-items: center;
+      background-color: var(--bg_blue);
+      #leftBar {
+        height: 4vh;
+        margin: 3vh;
+      }
+      #tit {
+        color: white;
+        font-size: 4vh;
+      }
     }
   }
 </style>
