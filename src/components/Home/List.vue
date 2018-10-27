@@ -37,7 +37,7 @@
         </div>
       </div>
     </div>
-    <div id="MenuButton" :class="{'clicked' : isClicked}" @click="closeLeftList">
+    <div id="MenuButton" @click="closeLeftList">
       <img src="@/assets/img/svg/homepage/leftBar.svg" alt="leftBar" />
     </div>
   </div>

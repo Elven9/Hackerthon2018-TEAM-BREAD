@@ -3,7 +3,6 @@
     <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
     <div id="myMap" :class="{ 'dark': isLeftListOpen }">
       <Header @openLeftList="isLeftListOpen=true"/>
-      <RightList />
     </div>
     <Footer :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
   </div>
@@ -11,7 +10,6 @@
 
 <script>
 import Header from '@/components/Home/Header'
-import RightList from '@/components/Home/Right'
 import Footer from '@/components/Home/Footer'
 import List from '@/components/Home/List'
 
@@ -20,7 +18,6 @@ export default {
   name: 'home',
   components: {
     Header,
-    RightList,
     Footer,
     List
   },
