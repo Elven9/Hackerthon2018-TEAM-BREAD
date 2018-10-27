@@ -1,5 +1,6 @@
 <template>
   <div id="footer-wrapper">
+    <el-button type="danger">危险按钮</el-button>
   </div>
 </template>
 
@@ -14,4 +15,5 @@ export default {
 </script>
 
 <style lang="scss">
+
 </style>
