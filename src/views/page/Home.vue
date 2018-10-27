@@ -32,10 +32,10 @@ export default {
   },
   methods: {
     loadMapScenario() {
-      if (!this.cur_mode)
+      if (this.cur_mode)
         this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
       /* No need to set credentials if already passed in URL */
-          center: new Microsoft.Maps.Location(47.616343, -122.203177),
+          center: new Microsoft.Maps.Location(23.5, 120.58),
           customMapStyle: {
             elements: {
                 area: { fillColor: '#fbf2ea' },
@@ -69,6 +69,11 @@ export default {
   },
   mounted() {
     this.loadMapScenario();
+  },
+  watch: {
+    cur_mode(){
+      this.loadMapScenario();
+    }
   }
 }
 </script>
