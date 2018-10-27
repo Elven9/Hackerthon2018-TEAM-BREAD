@@ -64,7 +64,7 @@ export default {
   .outter {
     display: flex;
     flex-direction: row;
-    background-color: RGBA(0, 0, 0, 30%);
+    background-color: RGBA(0, 0, 0, 0.3);
     overflow: hidden;
     #MenuButton {
       img {
