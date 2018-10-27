@@ -53,24 +53,24 @@ export default {
     bottom: 0;
     width: calc(100vw - 2px);
     height: 11vw;
-    background-color: var(--bg_white);
-    border: 1px solid var(--bg_brown);
+    background-color: var(--bg_blue);
+    border: 1px solid var(--bg_white);
     .temp {
       font-size: 20%;
-      color: #aaaaaa;
+      color: var(--bg_white);
     }
     img {
       width: 6vw;
       margin: 1vw;
     }
     .el-switch__core {
-      background-color: var(--bg_brown) !important;
-      border-color: var(--bg_brown) !important;
+      background-color: var(--bg_blue) !important;
+      border-color: var(--bg_blue) !important;
     }
     .mode_text {
       width: 20vw;
       font-size: 3vw;
-      color: var(--bg_brown);
+      color: var(--bg_white);
     }
   }
   .el-popover {
@@ -78,13 +78,17 @@ export default {
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    border: 1px solid var(--bg_brown) !important;
+    border: 1px solid var(--bg_blue) !important;
+    background-color: var(--bg_blue) !important;
+    color: var(--bg_white) !important;
     top: calc(90vh - 25vw) !important;
     bottom: 8vh !important;
     left: 15px !important;
   }
   .el-popper[x-placement^=top] .popper__arrow {
-    // border-top-color: var(--bg_brown) !important;
-    left: 10vw !important;
+    border-top-color: var(--bg_blue) !important;
+  }
+  .el-popper[x-placement^=top] .popper__arrow::after {
+    display: none !important;
   }
 </style>
