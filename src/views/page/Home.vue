@@ -8,7 +8,7 @@
 
 <script>
 import Header from '@/components/Home/Header'
-import RightList from '@/components/Home/RightList'
+import RightList from '@/components/Home/Right'
 import Footer from '@/components/Home/Footer'
 
 export default {
@@ -22,4 +22,8 @@ export default {
 </script>
 
 <style lang="scss">
+  #home {
+    width: 100vw;
+    height: 100vh;
+  }
 </style>
