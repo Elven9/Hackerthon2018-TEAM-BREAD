@@ -15,7 +15,7 @@ export default {
 <style lang="scss">
   :root {
     --bg_white: #ffffff;
-    --bg_brown: #754741;
+    --bg_blue: RGBA(24, 138, 181, 80%);
   }
   body {
     margin: 0;
