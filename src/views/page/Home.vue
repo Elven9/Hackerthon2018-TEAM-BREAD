@@ -1,19 +1,29 @@
 <template>
-  <div class="home">
-    <div ref="myMap" id='myMap' style='width: 100vw; height: 100vh;'></div>
+  <div id="home">
+    <Header />
+    <RightList />
+    <Footer />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Header from '@/components/Home/Header'
+import RightList from '@/components/Home/Right'
+import Footer from '@/components/Home/Footer'
 
 export default {
   name: 'home',
   components: {
-
-  },
-  mounted() {
-    new Microsoft.Maps.Map(this.$refs.myMap, {});
+    Header,
+    RightList,
+    Footer
   }
 }
 </script>
+
+<style lang="scss">
+  #home {
+    width: 100vw;
+    height: 100vh;
+  }
+</style>

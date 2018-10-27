@@ -13,15 +13,15 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  margin: 0;
-  #app {
-    height: 100vh;
-    width: 100%;
-    #header {
-      height: 10%;
-      width: 100%;
-    } 
+  :root {
+    --bg_white: #ffffff;
+    --bg_brown: #754741;
   }
-}
+  body {
+    margin: 0;
+    #app {
+      width: 100vw;
+      height: 100vh;
+    }
+  }
 </style>
