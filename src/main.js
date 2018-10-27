@@ -5,15 +5,11 @@ import store from './store'
 
 // Install Bootstrap-vue
 import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import BootstrapVue from 'bootstrap-vue'
 
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
-
-// Install element ui
-import ElementUI from 'element-ui';
-
-Vue.use(ElementUI);
 
 Vue.config.productionTip = false
 
