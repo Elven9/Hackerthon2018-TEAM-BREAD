@@ -1,22 +1,22 @@
 <template>
   <div>
-    <el-row type="flex" id="Header">
-      <el-col id="one">
+    <el-row align="middle" justify="center" :gutter="1" type="flex" id="Header">
+      <el-col :span="3">
         <div id="MenuButton" @click="openLeftList">
           <img src="@/assets/img/svg/homepage/leftBar.svg" alt="leftBar" />
         </div>
-        </el-col>
+      </el-col>
     
-      <el-col id="two">
-        <el-autocomplete v-model="input1" :placeholder="text1">
+      <el-col :span="15">
+        <el-autocomplete class="customer-autocomplete" v-model="input1" :placeholder="text1">
           
         </el-autocomplete>
-        <el-autocomplete class="secondBar" v-if="(value != '1') " v-model="input2" :placeholder="text2">
+        <el-autocomplete class="secondBar customer-autocomplete" v-if="(value != '1') " v-model="input2" :placeholder="text2">
           
         </el-autocomplete>
       </el-col>
       
-      <el-col id="thr">
+      <el-col :span="5">
         <el-select id="selectButton" v-model="value" >
           <el-option
             v-for="item in options"
@@ -77,39 +77,18 @@ export default {
  #Header{
   margin-top: 3%;
   background-color: transparent;
-  z-index: 9999;
-}
-.el-col{
-  // height: 100%;
+  margin-left: 7%;
+  margin-right: 7%;
   #MenuButton{
-    height: 100%;
-    width: 100%;
-  }
-}
-.el-row{
-  justify-content: space-evenly;
-  align-items: flex-start;
-  align-self: baseline;
-  padding-top: 3vw;
-  
-  #one {
-    width: 10vw;
-    margin: 0;
-  }
-  #two {
-    width: 55vw;
-    .secondBar{
-       margin-top: 1%;
+    img {
+      margin-top: 3px;
+      width: 10vw;
+      height: 10vh;
     }
   }
-  #thr {
-    z-index: 20000;
-    width: 22vw;
+  .customer-autocomplete {
+    width: 250px;
   }
-}
-
-.el-autocomplete {
-  width: 100%;
 }
 
 .el-input__inner{
