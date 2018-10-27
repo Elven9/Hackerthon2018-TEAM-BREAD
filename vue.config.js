@@ -6,6 +6,7 @@ const Webpack = require('webpack');
 
 module.exports = {
   // Initial all setting.
+  assetsDir: Path.resolve(__dirname, 'src/assets'),
   configureWebpack(config) {
     // Add Setting.
     return {
