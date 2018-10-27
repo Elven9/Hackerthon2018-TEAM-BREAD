@@ -68,8 +68,9 @@ export default {
     overflow: hidden;
     #MenuButton {
       img {
-        margin-left: -1px;
-        height: 8vw;
+        margin-top: 2px;
+        margin-left: -5px;
+        height: 12vw;
       }
     }
     .list-container {
