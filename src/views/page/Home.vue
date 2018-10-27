@@ -4,7 +4,6 @@
 </template>
 
 <script>
-import Map from '@/components/Home/map';
 
 export default {
   name: 'home',
