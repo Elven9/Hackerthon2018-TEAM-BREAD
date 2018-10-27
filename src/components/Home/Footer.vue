@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <div>
+    <div v-if="cur_mode" id="add"><img src="@/assets/img/svg/homepage/add.svg" alt="add" /></div>
+    <div id="extraDiv">
       <el-switch v-model="traveler"></el-switch>
       <p class="mode_text">{{ cur_mode }}</p>
     </div>
@@ -35,7 +36,7 @@ export default {
       default: 0
     },
     temperature: {
-      type: String,
+      type: Number,
       default: 28
     }
   },
@@ -51,16 +52,41 @@ export default {
   .container {
     display: flex;
     flex-direction: column;
-    .el-switch {
-      left: 85vw;
-      bottom: 25vw;
-      z-index: 9999;
-      .el-switch__core {
-        background-color: var(--bg_white) !important;
-        border-color: var(--bg_white) !important;
+    #add {
+      position: absolute;
+      width: 15vw;
+      right: 5px;
+      top: 30vh;
+    }
+    #extraDiv {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      background-color: var(--bg_blue);
+      position: fixed;
+      bottom: 12vh;
+      left: 0;
+      width: calc(100vw / 3);
+      height: 9vw;
+      z-index: 10000;
+      border-left: 1px solid white;
+      border-top-right-radius: 30%;
+      border-bottom-right-radius: 30%;
+      .el-switch {
+        flex-grow: 0;
+        flex-shrink: 0;
+        z-index: 9999;
+        .el-switch__core {
+          background-color: var(--bg_white) !important;
+          border-color: var(--bg_white) !important;
+        }
+        .el-switch__core:after {
+          background-color: var(--bg_blue) !important;
+        }
       }
-      .el-switch__core:after {
-        background-color: var(--bg_blue) !important;
+      .mode_text {
+        font-size: 3vw;
+        color: var(--bg_white);
       }
     }
     #footer-wrapper {
@@ -81,11 +107,6 @@ export default {
         width: 8vw;
         margin: 1vw;
       }
-      .mode_text {
-        width: 20vw;
-        font-size: 3vw;
-        color: var(--bg_white);
-      }
     }
     .el-popover {
       display: flex;
@@ -98,7 +119,6 @@ export default {
       top: calc(90vh - 25vw) !important;
       bottom: 8vh !important;
       left: 35vw !important;
-      z-index: 9999;
     }
     .el-popper[x-placement^=top] .popper__arrow {
       border-top-color: var(--bg_blue) !important;
