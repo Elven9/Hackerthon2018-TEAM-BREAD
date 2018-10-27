@@ -8,8 +8,10 @@
     <div id="footer-wrapper">
       <img src="@/assets/img/svg/homepage/back.svg" alt="back" />
       <img src="@/assets/img/svg/homepage/compass.svg" alt="compass" />
-      <img src="@/assets/img/svg/homepage/footprint.svg" @click="createRoute" alt="footprint" />
-      <img src="@/assets/img/svg/homepage/favorite.svg" @click="saveFavorite" alt="favorite" />
+      <img v-if="isFootClicked" src="@/assets/img/svg/homepage/footprint_clicked.svg" @click="createRoute()" alt="footprint" />
+      <img v-else src="@/assets/img/svg/homepage/footprint.svg" @click="createRoute()" alt="footprint" />
+      <img v-if="isHeartClicked" src="@/assets/img/svg/homepage/favorite_clicked.svg" @click="saveFavorite()" alt="favorite" />
+      <img v-else src="@/assets/img/svg/homepage/favorite.svg" @click="saveFavorite()" alt="favorite" />
       <img src="@/assets/img/svg/homepage/create.svg" alt="create" />
       <el-popover placement="top" width="160">
         <img src="@/assets/img/svg/homepage/WeatherIcon1.svg" width="40%" />
@@ -27,7 +29,9 @@ export default {
   data() {
     return {
       traveler: false,
-      cur_mode: 'map mode'
+      cur_mode: 'map mode',
+      isFootClicked: false,
+      isHeartClicked: false
     }
   },
   props: {
@@ -42,18 +46,34 @@ export default {
   },
   methods: {
     saveFavorite() {
-      this.$message({
-        message: '已將此地點儲存',
-        type: 'success',
-          center: true
-      });
+      this.isHeartClicked = !this.isHeartClicked;
+      if (this.isHeartClicked)
+        this.$message({
+          message: '已儲存此地點',
+          type: 'success',
+            center: true
+        });
+      else
+        this.$message({
+          message: '已取消儲存此地點',
+          type: 'warning',
+            center: true
+        });
     },
     createRoute() {
-      this.$message({
-        message: '已開始紀錄旅程',
-        type: 'success',
-          center: true
-      })
+      this.isFootClicked = !this.isFootClicked;
+      if (this.isFootClicked)
+        this.$message({
+          message: '已開始紀錄旅程',
+          type: 'success',
+            center: true
+        })
+      else
+        this.$message({
+          message: '旅程已結束',
+          type: 'success',
+            center: true
+        })
     },
     imgWeather() {
       return `@/assets/img/svg/homepage/WeatherIcon${this.weather}.svg`
@@ -113,7 +133,7 @@ export default {
       position: fixed;
       bottom: 0;
       width: 100vw;
-      height: 17vw;
+      height: var(--footer_height);
       background-color: var(--bg_blue);
       border-top: 1px solid var(--bg_white);
       .temp {

@@ -26,4 +26,8 @@ export default {
 </script>
 
 <style lang="scss">
+#article-wrapper {
+  display: flex;
+  flex-direction: column;
+}
 </style>

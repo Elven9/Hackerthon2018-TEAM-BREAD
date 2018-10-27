@@ -8,12 +8,12 @@
         </el-col>
     
       <el-col id="two">
-        <el-input  :placeholder="text1" v-model="input1">
-          <el-button slot="append"></el-button>
-        </el-input>
-        <el-input class="secondBar" v-if="(value != '1') " :placeholder="text2" v-model="input2">
-          <el-button class="secondBar" slot="append"></el-button>
-        </el-input>
+        <el-autocomplete v-model="input1" :placeholder="text1">
+          
+        </el-autocomplete>
+        <el-autocomplete class="secondBar" v-if="(value != '1') " v-model="input2" :placeholder="text2">
+          
+        </el-autocomplete>
       </el-col>
       
       <el-col id="thr">
@@ -97,15 +97,19 @@ export default {
     margin: 0;
   }
   #two {
-    width: 60vw;
+    width: 55vw;
     .secondBar{
        margin-top: 1%;
     }
   }
   #thr {
     z-index: 20000;
-    width: 17vw;
+    width: 22vw;
   }
+}
+
+.el-autocomplete {
+  width: 100%;
 }
 
 .el-input__inner{
