@@ -138,8 +138,12 @@ export default {
 </script>
 
 <style lang="scss">
+ #Header{
+  margin-top: 3%;
+  background-color: transparent;
+  z-index: 9999;
+}
 .el-col{
-
   // height: 100%;
   #MenuButton{
     background: var(--bg_white);
