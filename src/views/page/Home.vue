@@ -9,9 +9,13 @@
 </template>
 
 <script>
+<<<<<<< Updated upstream
 import Header from '@/components/Home/Header'
 import RightList from '@/components/Home/Right'
 import Footer from '@/components/Home/Footer'
+=======
+import Map from '@/components/Home/MapPage';
+>>>>>>> Stashed changes
 
 export default {
   name: 'home',
