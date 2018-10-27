@@ -1,6 +1,6 @@
 <template>
   <div id="footer-wrapper">
-    <img src="" alt="back" />
+    <img src="@/assets/img/svg/homepage/leftDownTool (2).svg" alt="back" />
     <img src="" alt="weather" />
     <img src="" alt="favorite" />
     <img src="" alt="create" />
