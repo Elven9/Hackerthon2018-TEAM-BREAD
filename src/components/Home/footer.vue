@@ -16,6 +16,6 @@ export default {
     bottom: 0;
     width: 100vw;
     height: 8vh;
-    background-color: var(--bg_white)
+    background-color: var(--bg_white);
   }
 </style>
