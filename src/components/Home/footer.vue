@@ -1,12 +1,12 @@
 <template>
   <div id="footer-wrapper">
-    <img src="" alt="back" />
+    <img src="/assets/back.svg" alt="back" />
     <img src="" alt="weather" />
     <img src="" alt="favorite" />
     <img src="" alt="create" />
     <img src="" alt="footprint" />
     <img src="" alt="compass" />
-    <el-switch v-model="traveler" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+    <el-switch v-model="traveler"></el-switch>
     <p class="mode_text">{{ cur_mode }}</p>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
 <style lang="scss">
   #footer-wrapper {
     display: flex;
+    align-items: center;
     position: fixed;
     bottom: 0;
     width: calc(100vw - 2px);
@@ -42,8 +43,12 @@ export default {
       width: 10vw;
       margin: 1vw;
     }
+    .el-switch__core {
+      background-color: var(--bg_brown) !important;
+      border-color: var(--bg_brown) !important;
+    }
     .mode_text {
-      font-size: 14px;
+      font-size: 5%;
       color: var(--bg_brown);
     }
   }
