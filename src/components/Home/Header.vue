@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
  #Header{
   margin-top: 3%;
   background-color: transparent;
@@ -89,7 +89,9 @@ export default {
 .el-row{
   justify-content: space-evenly;
   align-items: flex-start;
+  align-self: baseline;
   padding-top: 3vw;
+  
   #one {
     width: 10vw;
     margin: 0;
@@ -101,6 +103,7 @@ export default {
     }
   }
   #thr {
+    z-index: 20000;
     width: 17vw;
   }
 }

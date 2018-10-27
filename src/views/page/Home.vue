@@ -13,6 +13,7 @@ import Header from '@/components/Home/Header'
 import Footer from '@/components/Home/Footer'
 import List from '@/components/Home/List'
 
+
 export default {
   name: 'home',
   components: {
@@ -61,7 +62,8 @@ export default {
             transit: { fillColor: '#000000' }
           },
           settings: { landColor: '#c1ebff' }
-    } });
+        }
+      });
     }
   },
   mounted() {
