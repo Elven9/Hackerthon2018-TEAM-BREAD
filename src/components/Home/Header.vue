@@ -2,20 +2,18 @@
   <div>
     <el-row type="flex" id="Header">
       <el-col id="one">
-        <div>
-          <button id="MenuButton" :class="{'clicked' : isClicked}" @click="isClicked = !isClicked" type="button"></button>
+        <div id="MenuButton" @click="openLeftList">
+          <img src="@/assets/img/svg/homepage/leftBar.svg" alt="leftBar" />
         </div>
         </el-col>
     
       <el-col id="two">
-        <el-input-group >
-          <el-input  :placeholder="text1" v-model="input">
-            <el-button slot="append"></el-button>
-          </el-input>
-          <el-input class="secondBar" v-if="(value != '1') " :placeholder="text2" v-model="input">
-            <el-button class="secondBar" slot="append"></el-button>
-          </el-input>
-        </el-input-group>
+        <el-input  :placeholder="text1" v-model="input1">
+          <el-button slot="append"></el-button>
+        </el-input>
+        <el-input class="secondBar" v-if="(value != '1') " :placeholder="text2" v-model="input2">
+          <el-button class="secondBar" slot="append"></el-button>
+        </el-input>
       </el-col>
       
       <el-col id="thr">
@@ -29,74 +27,6 @@
         </el-select>
       </el-col>      
     </el-row>
-
-    <!-- left bar -->
-    <div>
-      <!-- profile -->
-      
-      <div class="LeftBarGroup" >
-        <div id="LeftBarProfile">
-          <div>
-            <img src="@/assets/img/svg/leftbar/Avatar.svg" alt="share" height="30vw"/>
-          </div>
-          <div id="ProfileText">Account</div>
-        </div>
-      </div>
-
-      <div class="LeftBarGroup">
-        <button class="LeftBarButton" type="button">
-          <!-- picture -->
-          <div>
-             <img src="@/assets/img/svg/leftbar/shareTool.svg" alt="share" height="15vw"/>
-          </div>
-          <div class="LeftBarText">分享地點位置</div>
-        </button>
-        <button class="LeftBarButton" type="button">
-           <!-- picture -->
-          <div>
-            <img src="@/assets/img/svg/leftbar/BackToInitTool.svg" alt="Init" height="15vw"/>
-          </div>
-          <div class="LeftBarText">回到現在位置</div>
-        </button>
-        <button class="LeftBarButton" type="button">
-           <!-- picture -->
-          <div>
-            <img src="@/assets/img/svg/leftbar/searchLocationTool.svg" alt="searchLocation" height="15vw"/>
-          </div>
-          <div class="LeftBarText">搜尋地點</div>
-        </button>
-        <button class="LeftBarButton" type="button">
-           <!-- picture -->
-          <div>
-            <img src="@/assets/img/svg/leftbar/ItemSearchTool.svg" alt="ItemSearch" height="15vw"/>
-          </div>
-          <div class="LeftBarText">搜尋景物</div>
-        </button>
-        <button class="LeftBarButton" type="button">
-           <!-- picture -->
-          <div>
-            <img src="@/assets/img/svg/leftbar/photo.svg" alt="photo" height="15vw"/>
-          </div>
-          <div class="LeftBarText">為地點新增照片或文字</div>
-        </button>
-        <button class="LeftBarButton" type="button">
-           <!-- picture -->
-          <div>
-            <img src="@/assets/img/svg/leftbar/FavoriteTool.svg" alt="favorite" height="15vw"/>
-          </div>
-          <div class="LeftBarText">我的最愛</div>
-        </button>
-        <button class="LeftBarButton" type="button">
-           <!-- picture -->
-          <div>
-            <img src="@/assets/img/svg/leftbar/logout.svg" alt="logout" height="15vw"/>
-          </div>
-          <div class="LeftBarText">Logout</div>
-        </button>
-      </div>
-        
-        
-    </div>
   </div>
 </template>
 
@@ -118,7 +48,13 @@ export default {
         label: '路線'
       }],
       value: '1',
-      isClicked: false
+      input1: '',
+      input2: ''
+    }
+  },
+  methods: {
+    openLeftList() {
+      this.$emit('openLeftList', true);
     }
   },
   watch: {
@@ -137,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
  #Header{
   margin-top: 3%;
   background-color: transparent;
@@ -146,8 +82,6 @@ export default {
 .el-col{
   // height: 100%;
   #MenuButton{
-    background: var(--bg_white);
-    border-color: var(--bg_brown);
     height: 100%;
     width: 100%;
   }
@@ -155,7 +89,9 @@ export default {
 .el-row{
   justify-content: space-evenly;
   align-items: flex-start;
+  align-self: baseline;
   padding-top: 3vw;
+  
   #one {
     width: 10vw;
     margin: 0;
@@ -167,15 +103,9 @@ export default {
     }
   }
   #thr {
+    z-index: 20000;
     width: 17vw;
   }
-}
-.clicked{
-  background-color: #f5f7fa;
-}
-.el-button{
-  color: var(--bg_white);
-  border: none;
 }
 
 .el-input__inner{
@@ -202,31 +132,4 @@ export default {
 .el-select-dropdown__item.selected{
   color: var(--bg_blue)!important;
 }
-
-.LeftBarGroup{
-  display: flex;
-  flex-direction: column;
-  background-color: var(--da_blue);
-  #LeftBarProfile{
-    display: flex;
-    background-color: var(--li_blue);
-    flex-direction: row;
-    #ProfileText{
-      color: var(--da_blue);
-    }
-  }
-  .LeftBarButton{
-    display: flex;
-    flex-direction: row;
-
-    .LeftBarText{
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--bg_white);
-    }
-  }
-}
-
-
 </style>
