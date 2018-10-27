@@ -81,7 +81,7 @@ export default {
 }
 #MenuButton{
   background: var(--bg_white)!important;
-  border-color: var(--bg_brown)!important;
+  border-color: var(--bg_blue)!important;
   height: 35px!important;
 }
 .clicked{
@@ -107,24 +107,24 @@ export default {
 .el-input__inner{
   padding-right: 0%!important;
   
-  border-top-color: var(--bg_brown)!important;
-  border-left-color: var(--bg_brown)!important;
-  border-bottom-color: var(--bg_brown)!important;
+  border-top-color: var(--bg_blue)!important;
+  border-left-color: var(--bg_blue)!important;
+  border-bottom-color: var(--bg_blue)!important;
   border-right-style:none !important;
 }
 .el-input-group__append{
-  border-top-color: var(--bg_brown)!important;
-  border-right-color: var(--bg_brown)!important;
-  border-bottom-color: var(--bg_brown)!important;
+  border-top-color: var(--bg_blue)!important;
+  border-right-color: var(--bg_blue)!important;
+  border-bottom-color: var(--bg_blue)!important;
   border-left-color: none;
   background-color: var(--bg_white)!important;
 }
 #selectButton{
   padding-right: 0%!important;
-  border-color: var(--bg_brown)!important;
+  border-color: var(--bg_blue)!important;
   border-style: solid!important;
 }
 .el-select-dropdown__item.selected{
-  color: var(--bg_brown)!important;
+  color: var(--bg_blue)!important;
 }
 </style>
