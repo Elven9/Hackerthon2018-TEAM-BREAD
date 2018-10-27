@@ -1,10 +1,6 @@
 <template>
   <div id="footer-wrapper">
-<<<<<<< HEAD:src/components/Home/Footer.vue
     <img src="@/assets/img/svg/homepage/leftDownTool (2).svg" alt="back" />
-=======
-    <img src="/assets/back.svg" alt="back" />
->>>>>>> 60d309d12317c81d907961a3c7c97ca3d128e8ff:src/views/page/Footer.vue
     <img src="" alt="weather" />
     <img src="" alt="favorite" />
     <img src="" alt="create" />
