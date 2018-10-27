@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="cur_mode" id="add"><img src="@/assets/img/svg/homepage/add.svg" alt="add" /></div>
+    <div v-show="traveler" id="add"><img src="@/assets/img/svg/homepage/add.svg" alt="add" /></div>
     <div id="extraDiv">
       <el-switch v-model="traveler"></el-switch>
       <p class="mode_text">{{ cur_mode }}</p>
@@ -8,8 +8,8 @@
     <div id="footer-wrapper">
       <img src="@/assets/img/svg/homepage/back.svg" alt="back" />
       <img src="@/assets/img/svg/homepage/compass.svg" alt="compass" />
-      <img src="@/assets/img/svg/homepage/footprint.svg" alt="footprint" />
-      <img src="@/assets/img/svg/homepage/favorite.svg" alt="favorite" />
+      <img src="@/assets/img/svg/homepage/footprint.svg" @click="createRoute" alt="footprint" />
+      <img src="@/assets/img/svg/homepage/favorite.svg" @click="saveFavorite" alt="favorite" />
       <img src="@/assets/img/svg/homepage/create.svg" alt="create" />
       <el-popover placement="top" width="160" v-model="visible2">
         <img :src="imgWeather" width="40%" />
@@ -38,6 +38,22 @@ export default {
     temperature: {
       type: Number,
       default: 28
+    }
+  },
+  methods: {
+    saveFavorite() {
+      this.$message({
+        message: '已將此地點儲存',
+        type: 'success',
+          center: true
+      });
+    },
+    createRoute() {
+      this.$message({
+        message: '已開始紀錄旅程',
+        type: 'success',
+          center: true
+      })
     }
   },
   watch: {
@@ -126,5 +142,8 @@ export default {
     .el-popper[x-placement^=top] .popper__arrow::after {
       display: none !important;
     }
+  }
+  .el-message {
+    z-index: 100001 !important;
   }
 </style>
