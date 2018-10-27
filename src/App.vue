@@ -17,7 +17,10 @@ export default {
     --bg_white: #ffffff;
     --bg_blue: RGBA(56, 123, 148, 80%);
     --li_blue: #BFE0EB;
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
   }
   body {
     margin: 0;

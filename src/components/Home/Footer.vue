@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div v-if="cur_mode" id="add"><img src="@/assets/img/svg/homepage/add.svg" alt="add" /></div>
+    <div v-show="traveler" id="add"><img src="@/assets/img/svg/homepage/add.svg" alt="add" /></div>
     <div id="extraDiv">
       <el-switch v-model="traveler"></el-switch>
       <p class="mode_text">{{ cur_mode }}</p>
@@ -8,11 +8,11 @@
     <div id="footer-wrapper">
       <img src="@/assets/img/svg/homepage/back.svg" alt="back" />
       <img src="@/assets/img/svg/homepage/compass.svg" alt="compass" />
-      <img src="@/assets/img/svg/homepage/footprint.svg" alt="footprint" />
-      <img src="@/assets/img/svg/homepage/favorite.svg" alt="favorite" />
+      <img src="@/assets/img/svg/homepage/footprint.svg" @click="createRoute" alt="footprint" />
+      <img src="@/assets/img/svg/homepage/favorite.svg" @click="saveFavorite" alt="favorite" />
       <img src="@/assets/img/svg/homepage/create.svg" alt="create" />
-      <el-popover placement="top" width="160" v-model="visible2">
-        <img :src="imgWeather" width="40%" />
+      <el-popover placement="top" width="160">
+        <img src="@/assets/img/svg/homepage/WeatherIcon1.svg" width="40%" />
         <p class="temp">{{ temperature }} °C</p>
         <img src="@/assets/img/svg/homepage/weather.svg" alt="weather" slot="reference" />
       </el-popover>
@@ -33,16 +33,36 @@ export default {
   props: {
     weather: {
       type: Number,
-      default: 0
+      default: 1
     },
     temperature: {
       type: Number,
       default: 28
     }
   },
+  methods: {
+    saveFavorite() {
+      this.$message({
+        message: '已將此地點儲存',
+        type: 'success',
+          center: true
+      });
+    },
+    createRoute() {
+      this.$message({
+        message: '已開始紀錄旅程',
+        type: 'success',
+          center: true
+      })
+    },
+    imgWeather() {
+      return `@/assets/img/svg/homepage/WeatherIcon${this.weather}.svg`
+    }
+  },
   watch: {
     traveler() {
       this.cur_mode = this.traveler? 'travel mode': 'map mode';
+      this.$emit('modeChange', this.traveler);
     }
   }
 }
@@ -66,12 +86,9 @@ export default {
       position: fixed;
       bottom: 12vh;
       left: 0;
-      width: calc(100vw / 3);
+      width: 30vw;
       height: 9vw;
       z-index: 10000;
-      border-left: 1px solid white;
-      border-top-right-radius: 30%;
-      border-bottom-right-radius: 30%;
       .el-switch {
         flex-grow: 0;
         flex-shrink: 0;
@@ -85,7 +102,7 @@ export default {
         }
       }
       .mode_text {
-        font-size: 3vw;
+        font-size: 1vw;
         color: var(--bg_white);
       }
     }
@@ -95,10 +112,10 @@ export default {
       align-items: center;
       position: fixed;
       bottom: 0;
-      width: calc(100vw - 2px);
+      width: 100vw;
       height: 17vw;
       background-color: var(--bg_blue);
-      border: 1px solid var(--bg_white);
+      border-top: 1px solid var(--bg_white);
       .temp {
         font-size: 18%;
         color: var(--bg_white);
@@ -108,23 +125,30 @@ export default {
         margin: 1vw;
       }
     }
-    .el-popover {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-evenly;
-      align-items: center;
-      border: 1px solid var(--bg_blue) !important;
-      background-color: var(--bg_blue) !important;
-      color: var(--bg_white) !important;
-      top: calc(90vh - 25vw) !important;
-      bottom: 8vh !important;
-      left: 35vw !important;
+  }
+  .el-popover {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 30vw !important;
+    border: 1px solid var(--bg_blue) !important;
+    background-color: var(--bg_blue) !important;
+    color: var(--bg_white) !important;
+    top: calc(90vh - 25vw) !important;
+    bottom: 10vh !important;
+    left: 50vw !important;
+    img {
+      width: 10vw;
     }
-    .el-popper[x-placement^=top] .popper__arrow {
-      border-top-color: var(--bg_blue) !important;
-    }
-    .el-popper[x-placement^=top] .popper__arrow::after {
-      display: none !important;
-    }
+  }
+  .el-popper[x-placement^=top] .popper__arrow {
+    border-top-color: var(--bg_blue) !important;
+  }
+  .el-popper[x-placement^=top] .popper__arrow::after {
+    display: none !important;
+  }
+  .el-message {
+    z-index: 100001 !important;
   }
 </style>

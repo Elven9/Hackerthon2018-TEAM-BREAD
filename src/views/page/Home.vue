@@ -1,10 +1,11 @@
 <template>
   <div id="home">
-    <div id="myMap">
-      <Header />
+    <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
+    <div id="myMap" :class="{ 'dark': isLeftListOpen }">
+      <Header @openLeftList="isLeftListOpen=true"/>
       <RightList />
     </div>
-    <Footer />
+    <Footer :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
   </div>
 </template>
 
@@ -12,6 +13,7 @@
 import Header from '@/components/Home/Header'
 import RightList from '@/components/Home/Right'
 import Footer from '@/components/Home/Footer'
+import List from '@/components/Home/List'
 
 
 export default {
@@ -19,16 +21,37 @@ export default {
   components: {
     Header,
     RightList,
-    Footer
+    Footer,
+    List
   },
   data() {
     return {
-      map: null
+      map: null,
+      isLeftListOpen: false,
+      cur_mode: 0
     }
   },
   methods: {
     loadMapScenario() {
-      this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+      if (this.cur_mode)
+        this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
+      /* No need to set credentials if already passed in URL */
+          center: new Microsoft.Maps.Location(23.5, 120.58),
+          customMapStyle: {
+            elements: {
+                area: { fillColor: '#fbf2ea' },
+                water: { fillColor: '#66b3ff' },
+                tollRoad: { fillColor: '#fbf2ea', strokeColor: '#fbf2ea' },
+                arterialRoad: { fillColor: '#fbf2ea', strokeColor: '#fbf2ea' },
+                road: { fillColor: '#fbf2ea', strokeColor: '#fbf2ea' },
+                street: { fillColor: '#fbf2ea', strokeColor: '#fbf2ea' },
+                transit: { fillColor: '#000000' }
+            },
+            settings: { landColor: '#fbf2ea' }
+          }
+        });
+      else 
+        this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
     /* No need to set credentials if already passed in URL */
     center: new Microsoft.Maps.Location(23.5, 120.58),
         customMapStyle: {
@@ -48,6 +71,11 @@ export default {
   },
   mounted() {
     this.loadMapScenario();
+  },
+  watch: {
+    cur_mode(){
+      this.loadMapScenario();
+    }
   }
 }
 </script>
@@ -61,6 +89,7 @@ export default {
       height: 100vh;
       width: 100vw;
       overflow: hidden;
+      position: fixed !important;
       .NavBar {
         display: none !important;
       }
@@ -73,6 +102,10 @@ export default {
       #MicrosoftNav {
         display: none !important;
       }
+    }
+    .dark {
+      z-index: -1;
+      overflow: hidden;
     }
   }
 </style>
