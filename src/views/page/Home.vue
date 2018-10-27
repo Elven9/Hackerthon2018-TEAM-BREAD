@@ -1,15 +1,19 @@
 <template>
-  <div class="home">
+  <div id="home">
+    <Map />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import Map from '@/components/Home/map';
 
 export default {
   name: 'home',
   components: {
-
+    Map
   }
 }
 </script>
+
+<style lang="scss">
+</style>
