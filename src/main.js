@@ -4,8 +4,11 @@ import router from './router'
 import store from './store'
 
 // Install Bootstrap-vue
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import BootstrapVue from 'bootstrap-vue'
 
+Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 
 Vue.config.productionTip = false
