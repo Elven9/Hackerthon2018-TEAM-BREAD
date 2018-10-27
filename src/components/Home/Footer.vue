@@ -32,11 +32,11 @@ export default {
   props: {
     weather: {
       type: Number,
-      default: 5
+      default: 0
     },
     temperature: {
       type: String,
-      default: '無溫度資料'
+      default: 28
     }
   },
   watch: {
