@@ -2,20 +2,18 @@
   <div>
     <el-row type="flex" id="Header">
       <el-col id="one">
-        <div id="MenuButton" :class="{'clicked' : isClicked}" @click="openLeftList">
+        <div id="MenuButton" @click="openLeftList">
           <img src="@/assets/img/svg/homepage/leftBar.svg" alt="leftBar" />
         </div>
         </el-col>
     
       <el-col id="two">
-        <el-input-group >
-          <el-input  :placeholder="text1" v-model="input">
-            <el-button slot="append"></el-button>
-          </el-input>
-          <el-input class="secondBar" v-if="(value != '1') " :placeholder="text2" v-model="input">
-            <el-button class="secondBar" slot="append"></el-button>
-          </el-input>
-        </el-input-group>
+        <el-input  :placeholder="text1" v-model="input1">
+          <el-button slot="append"></el-button>
+        </el-input>
+        <el-input class="secondBar" v-if="(value != '1') " :placeholder="text2" v-model="input2">
+          <el-button class="secondBar" slot="append"></el-button>
+        </el-input>
       </el-col>
       
       <el-col id="thr">
@@ -49,7 +47,9 @@ export default {
         value: '3',
         label: '路線'
       }],
-      value: '1'
+      value: '1',
+      input1: '',
+      input2: ''
     }
   },
   methods: {
@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
  #Header{
   margin-top: 3%;
   background-color: transparent;
@@ -89,7 +89,9 @@ export default {
 .el-row{
   justify-content: space-evenly;
   align-items: flex-start;
+  align-self: baseline;
   padding-top: 3vw;
+  
   #one {
     width: 10vw;
     margin: 0;
@@ -101,6 +103,7 @@ export default {
     }
   }
   #thr {
+    z-index: 20000;
     width: 17vw;
   }
 }

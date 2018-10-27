@@ -1,12 +1,16 @@
 <template>
-  <div id="right-wrapper">
+  <div id="footer-wrapper">
+    
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'Right'
+  data() {
+    return {
+    }
+  }
 }
 </script>
 
