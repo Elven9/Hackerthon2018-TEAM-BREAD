@@ -10,6 +10,11 @@ import BootstrapVue from 'bootstrap-vue'
 Vue.use(ElementUI);
 Vue.use(BootstrapVue);
 
+// Install element ui
+import ElementUI from 'element-ui';
+
+Vue.use(ElementUI);
+
 Vue.config.productionTip = false
 
 new Vue({
