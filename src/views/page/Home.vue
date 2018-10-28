@@ -1,8 +1,12 @@
 <template>
   <div id="home">
-    <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
+    <transition name="fade">
+      <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
+      <div class="header">
+        <Header v-if="!isListOpen" @openLeftList="isLeftListOpen=true"/>
+      </div>
+    </transition>
     <div id="myMap" :class="{ 'dark': isLeftListOpen }">
-      <Header @openLeftList="isLeftListOpen=true"/>
     </div>
     <Footer :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
   </div>
@@ -79,8 +83,17 @@ export default {
 
 <style lang="scss">
   #home {
+    position: relative;
     width: 100vw;
     height: 100vh;
+    .header{
+      position: absolute;
+      z-index: 3;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
     #myMap {
       top: 0;
       height: 100vh;
@@ -105,4 +118,12 @@ export default {
       overflow: hidden;
     }
   }
+
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 2s;
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  transition: opacity 2s;
+  opacity: 0;
+}
 </style>
