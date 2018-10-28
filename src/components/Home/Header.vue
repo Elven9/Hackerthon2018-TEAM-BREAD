@@ -8,9 +8,14 @@
       </el-col>
     
       <el-col :span="15">
-        <el-autocomplete class="customer-autocomplete" v-model="input1" :placeholder="text1">
-          
-        </el-autocomplete>
+        <el-autocomplete
+          class="inline-input"
+          v-model="input1"
+          :fetch-suggestions="querySearch"
+          :placeholder="text1"
+          :trigger-on-focus="false"
+          @select="handleSelect"
+        ></el-autocomplete>
         <el-autocomplete class="secondBar customer-autocomplete" v-if="(value != '1') " v-model="input2" :placeholder="text2">
           
         </el-autocomplete>
@@ -31,6 +36,8 @@
 </template>
 
 <script>
+import { request } from "@/api/main.js";
+
 export default {
   props: {
     changeToString: {
@@ -55,12 +62,36 @@ export default {
       }],
       value: '1',
       input1: '',
-      input2: ''
+      input2: '',
+      locate: []
     }
   },
   methods: {
     openLeftList() {
       this.$emit('openLeftList', true);
+    },
+    querySearch(queryString, cb) {
+      var locate = this.locate;
+      var results = queryString ? locate.filter(this.createFilter(queryString)) : locate;
+      cb(results);
+    },
+    createFilter(queryString) {
+      return (locate) => {
+        return (locate.value.toLowerCase().indexOf(queryString.toLowerCase()) === 0);
+      };
+    },
+    loadAll() {
+      return [
+          { value: "台大", address: "台北市大安區羅斯福路四段1號" , locate: {lat: 25.0173405, lng: 121.5397518}},
+          { value: "台大醫院", address: "台北市中正區中山南路7號", locate: {lat: 25.0173405, lng: 121.5397518}},
+          { value: "台大醫院新竹分院", address: "新竹市北區經國路一段442巷25號",locate: {lat: 25.0173405, lng: 121.5397518}},
+          { value: "捷運台大醫院站", address: "台北市中正區",locate: {lat: 25.0173405, lng: 121.5397518}},
+          { value: "台灣科技大學", address: "台北市大安區基隆路四段43號",locate: {lat: 25.0173405, lng: 121.5397518}}
+        ];
+      },
+    handleSelect(item) {
+      console.log(item);
+      this.$emit('locateq', {lat: 25.0173405, lng: 121.5397518});
     }
   },
   watch: {
@@ -78,6 +109,9 @@ export default {
     changeToString() {
       this.value = this.changeToString;
     }
+  },
+  mounted() {
+    this.locate = this.loadAll();
   }
 }
 </script>

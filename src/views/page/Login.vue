@@ -84,13 +84,14 @@ export default {
   
 }
 #app{
+  
   #RegistButton{
     position: fixed;
     left: 4%;
     bottom: 1%;
     .el-button{
       background-color: var(--li_blue);
-      color: var(--bg_blue);
+      color: var(--bg_white);
     }
   }
 }
