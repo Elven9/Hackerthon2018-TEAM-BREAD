@@ -26,10 +26,10 @@
     </div>
     <!-- button -->
     <div id="RegistBut">
-      <el-button>註冊</el-button>
+      <el-button @click="toHomePage">註冊</el-button>
     </div>
     <div id="LoginBut">
-      <el-button>登入</el-button>
+      <el-button @click="toLogin">登入</el-button>
     </div>
   </div>
 </template>
@@ -41,6 +41,14 @@ export default {
       name:'',
       email:'',
       password:''
+    }
+  },
+  methods: {
+    toLogin() {
+      this.$router.push("/Login");
+    },
+    toHomePage() {
+      this.$router.push("/Home");
     }
   }
 }

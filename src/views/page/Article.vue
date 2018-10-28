@@ -29,5 +29,6 @@ export default {
 #article-wrapper {
   display: flex;
   flex-direction: column;
+  background-color: #DDF0F7;
 }
 </style>

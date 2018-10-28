@@ -7,23 +7,23 @@
         <p id="ProfileText">Account</p>
       </div>
       <div class="LeftBarGroup">
-        <div class="LeftBarButton">
+        <div class="LeftBarButton" @click="shareLocation">
           <img src="@/assets/img/svg/leftbar/shareTool.svg" alt="share" height="15vw"/>
           <div class="LeftBarText">分享地點位置</div>
         </div>
-        <div class="LeftBarButton">
-          <img src="@/assets/img/svg/leftbar/BackToInitTool.svg" alt="Init" height="15vw"/>
-          <div class="LeftBarText">回到現在位置</div>
+        <div class="LeftBarButton" @click="toHomePage">
+          <img src="@/assets/img/svg/leftbar/Asset 9.svg" alt="Init" height="15vw"/>
+          <div class="LeftBarText">回到地圖</div>
         </div>
         <div class="LeftBarButton">
           <img src="@/assets/img/svg/leftbar/searchLocationTool.svg" alt="searchLocation" height="15vw"/>
           <div class="LeftBarText">搜尋地點</div>
         </div>
-        <div class="LeftBarButton">
+        <div class="LeftBarButton" @click="changeToSearch">
           <img src="@/assets/img/svg/leftbar/ItemSearchTool.svg" alt="ItemSearch" height="15vw"/>
           <div class="LeftBarText">搜尋景物</div>
         </div>
-        <div class="LeftBarButton">
+        <div class="LeftBarButton" @click="pushToArticle">
           <img src="@/assets/img/svg/leftbar/photo.svg" alt="photo" height="15vw"/>
           <div class="LeftBarText">為地點新增照片或文字</div>
         </div>
@@ -55,6 +55,21 @@ export default {
   methods: {
     closeLeftList() {
       this.$emit('closeLeftList', false);
+    },
+    shareLocation() {
+      this.$message({
+        message: '成功將地址複製到剪貼本',
+        type: 'success'
+      });
+    },
+    pushToArticle() {
+      this.$router.push("/Article")
+    },
+    toHomePage() {
+      this.$router.push("/Home")
+    },
+    changeToSearch() {
+      this.$emit("changeToSearch");
     }
   }
 }
@@ -101,6 +116,9 @@ export default {
           justify-content: center;
           align-items: center;
           height: 7vh;
+          &:hover {
+            background-color: #0A4659;
+          }
           img {
             height: 50%;
             flex-grow: 1;

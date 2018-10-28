@@ -32,6 +32,12 @@
 
 <script>
 export default {
+  props: {
+    changeToString: {
+      type: String,
+      required: false
+    }
+  },
   data(){
     return{
       text1:'請輸入地點',
@@ -68,6 +74,9 @@ export default {
         this.text1 = "請輸入起點"
         this.text2 = "請輸入終點"
       }
+    },
+    changeToString() {
+      this.value = this.changeToString;
     }
   }
 }

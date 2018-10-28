@@ -42,6 +42,10 @@ export default {
     temperature: {
       type: Number,
       default: 28
+    },
+    toChangeMapMode: {
+      type: Boolean,
+      default: false
     }
   },
   methods: {
@@ -83,6 +87,9 @@ export default {
     traveler() {
       this.cur_mode = this.traveler? 'travel mode': 'map mode';
       this.$emit('modeChange', this.traveler);
+    },
+    toChangeMapMode() {
+      this.traveler = this.toChangeMapMode;
     }
   }
 }

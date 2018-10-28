@@ -1,14 +1,14 @@
 <template>
   <div id="home">
     <transition name="fade">
-      <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
+      <List v-if="isLeftListOpen" @changeToSearch="change" @closeLeftList="isLeftListOpen=false" />
       <div class="header">
-        <Header v-if="!isListOpen" @openLeftList="isLeftListOpen=true"/>
+        <Header :changeToString="changeToSearch" v-show="!isListOpen" @openLeftList="isLeftListOpen=true"/>
       </div>
     </transition>
     <div id="myMap" :class="{ 'dark': isLeftListOpen }">
     </div>
-    <Footer :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
+    <Footer :toChangeMapMode="changeToMode" :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
   </div>
 </template>
 
@@ -29,10 +29,18 @@ export default {
     return {
       map: null,
       isLeftListOpen: false,
-      cur_mode: 0
+      cur_mode: 0,
+      changeToSearch: 0,
+      changeToMode: false
     }
   },
   methods: {
+    change() {
+      this.cur_mode = true;
+      this.changeToSearch = "2";
+      this.isLeftListOpen = false;
+      this.changeToMode = true;
+    },
     loadMapScenario() {
       if (this.cur_mode)
         this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
@@ -120,10 +128,10 @@ export default {
   }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
+  transition: opacity 1s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transition: opacity .5s;
+  transition: opacity 1s;
   opacity: 0;
 }
 </style>

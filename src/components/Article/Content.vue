@@ -1,7 +1,9 @@
 <template>
   <div id="content-wrapper">
     <div id="article_title">{{ article.title }}</div>
-    <img :src="article.img" alt="img" />
+    <div id="article-mask">
+      <img src="@/assets/img/article.jpg" alt="img" />
+    </div>
     <div id="words">{{ article.words}}</div>
   </div>
 </template>
@@ -31,7 +33,6 @@ export default {
     align-items: center;
     width: 100vw;
     height: var(--content_height);
-    background-color: var(--li_blue);
     overflow-y: scroll;
     div {
       margin: 3vw;
@@ -39,7 +40,6 @@ export default {
       width: 85%;
       justify-content: center;
       align-items: center;
-      border: 1px solid var(--bg_blue);
     }
     #article_title {
       margin-top: 20px;
@@ -48,9 +48,12 @@ export default {
       overflow-x: scroll;
       white-space: nowrap;
     }
+    #article-mask {
+      border: 1px solid var(--bg_blue);
+      background-color: var(--li_blue);
+    }
     img {
-      margin: 3vw;
-      width: 85%;
+      width: 100%;
       height: 180px;
     }
     #words {
