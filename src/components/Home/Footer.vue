@@ -51,13 +51,14 @@ export default {
   methods: {
     saveFavorite() {
       this.isHeartClicked = !this.isHeartClicked;
-      if (this.isHeartClicked)
+      if (this.isHeartClicked) {
         this.$message({
           message: '已儲存此地點',
           type: 'success',
             center: true
         });
-      else
+        this.$emit("selectMapCenter");
+      } else
         this.$message({
           message: '已取消儲存此地點',
           type: 'warning',

@@ -8,7 +8,7 @@
     </transition>
     <div id="myMap" :class="{ 'dark': isLeftListOpen }">
     </div>
-    <Footer :toChangeMapMode="changeToMode" :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
+    <Footer @selectMapCenter="pingMapCenter" :toChangeMapMode="changeToMode" :class="{ 'dark': isLeftListOpen }" @modeChange="cur_mode=$event" />
   </div>
 </template>
 
@@ -17,6 +17,7 @@ import Header from '@/components/Home/Header'
 import Footer from '@/components/Home/Footer'
 import List from '@/components/Home/List'
 
+import heart from '@/assets/img/svg/heartIcon x 01.svg';
 
 export default {
   name: 'home',
@@ -31,10 +32,15 @@ export default {
       isLeftListOpen: false,
       cur_mode: 0,
       changeToSearch: 0,
-      changeToMode: false
+      changeToMode: false,
+      selectedPing: []
     }
   },
   methods: {
+    pingMapCenter() {
+      this.selectedPing.push(this.map.getCenter());
+      this.map.entities.push(new Microsoft.Maps.Pushpin(this.map.getCenter(), {icon: heart, anchor: new Microsoft.Maps.Point(25, 25)}))
+    },
     change() {
       this.cur_mode = true;
       this.changeToSearch = "2";
