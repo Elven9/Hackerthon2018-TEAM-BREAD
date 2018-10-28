@@ -8,6 +8,7 @@ import Article from 'page/Article'
 import Register from 'page/Regist'
 import Login from 'page/Login'
 import AddPost from 'page/AddPost'
+import Favorite from 'page/Favorite';
 
 Vue.use(Router)
 
@@ -43,5 +44,10 @@ export default new Router({
       name: 'addPost',
       component: AddPost
     },
+    {
+      path: '/Favorite',
+      name: 'favorite',
+      component: Favorite
+    }
   ]
 })
