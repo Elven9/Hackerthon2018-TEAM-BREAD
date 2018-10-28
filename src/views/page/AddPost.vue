@@ -28,5 +28,6 @@ export default {
 #addPost-wrapper {
   display: flex;
   flex-direction: column;
+  
 }
 </style>

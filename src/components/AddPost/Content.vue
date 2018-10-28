@@ -50,9 +50,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app{
-  background-color: var(--li_blue);
-}
+
 #content-wrapper{
   display: flex;
   height: 100%;
@@ -72,14 +70,16 @@ export default {
     
     .el-upload{
       width: 86vw;
+      margin: 0%;
     }
   }
   #textArea{
     margin-top: 5%;
-    margin-bottom: 7%;
+    margin-bottom: 18%;
     .el-textarea{
       height: 25vh;
       width: 100%;
+      margin: 0%;
       .el-textarea__inner {
         height: 100%;
       }
