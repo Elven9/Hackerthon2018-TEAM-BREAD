@@ -59,8 +59,8 @@ export default {
   flex-direction: column;
   justify-content: space-evenly;
   align-content: flex-start;
-  margin-left: 7%;
-  margin-right: 7%;
+  // margin-left: 5%;
+  margin-right: 5%;
   .el-input{
     margin-top: 7%;
     margin-bottom: 5%;
