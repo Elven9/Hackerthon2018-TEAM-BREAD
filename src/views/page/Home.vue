@@ -3,7 +3,7 @@
     <transition name="fade">
       <List v-if="isLeftListOpen" @closeLeftList="isLeftListOpen=false" />
       <div class="header">
-        <Header v-if="!isListOpen" @openLeftList="isLeftListOpen=true"/>
+        <Header v-if="!isListOpen" @openLeftList="isLeftListOpen=true" @locateq="cheat" />
       </div>
     </transition>
     <div id="myMap" :class="{ 'dark': isLeftListOpen }">
@@ -67,6 +67,13 @@ export default {
           },
           settings: { landColor: '#c1ebff' }
         }
+      });
+    },
+    cheat(locate){
+      console.log("QAQ");
+      this.map.setView({
+        center: new Microsoft.Maps.Location(locate.lat, locate.lng),
+        zoom: 15
       });
     }
   },
