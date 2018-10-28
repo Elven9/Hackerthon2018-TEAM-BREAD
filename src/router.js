@@ -7,6 +7,7 @@ import Startpage from 'page/StarterPage'
 import Article from 'page/Article'
 import Register from 'page/Regist'
 import Login from 'page/Login'
+import AddPost from 'page/AddPost'
 
 Vue.use(Router)
 
@@ -36,6 +37,11 @@ export default new Router({
       path: '/Login',
       name: 'login',
       component: Login
-    }
+    },
+    {
+      path: '/AddPost',
+      name: 'addPost',
+      component: AddPost
+    },
   ]
 })
