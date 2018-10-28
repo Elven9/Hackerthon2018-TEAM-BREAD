@@ -57,7 +57,7 @@ export default {
           type: 'success',
             center: true
         });
-        this.$emit("selectMapCenter");
+        // this.$emit("selectMapCenter");
       } else
         this.$message({
           message: '已取消儲存此地點',
