@@ -83,15 +83,15 @@ export default {
     loadAll() {
       return [
           { value: "台大", address: "台北市大安區羅斯福路四段1號" , locate: {lat: 25.0173405, lng: 121.5397518}},
-          { value: "台大醫院", address: "台北市中正區中山南路7號", locate: {lat: 25.0173405, lng: 121.5397518}},
-          { value: "台大醫院新竹分院", address: "新竹市北區經國路一段442巷25號",locate: {lat: 25.0173405, lng: 121.5397518}},
+          { value: "台大醫院", address: "台北市中正區中山南路7號", locate: {lat: 25.0406785, lng: 121.5189691}},
+          { value: "台大醫院新竹分院", address: "新竹市北區經國路一段442巷25號",locate: {lat: 24.8162925, lng: 120.9801302}},
           { value: "捷運台大醫院站", address: "台北市中正區",locate: {lat: 25.0173405, lng: 121.5397518}},
-          { value: "台灣科技大學", address: "台北市大安區基隆路四段43號",locate: {lat: 25.0173405, lng: 121.5397518}}
+          { value: "台灣科技大學", address: "台北市大安區基隆路四段43號",locate: {lat: 25.0136906, lng: 121.5406792}}
         ];
       },
     handleSelect(item) {
       console.log(item);
-      this.$emit('locateq', {lat: 25.0173405, lng: 121.5397518});
+      this.$emit('locateq', item.locate);
     }
   },
   watch: {
