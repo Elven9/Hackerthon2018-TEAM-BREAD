@@ -34,7 +34,7 @@ export default {
   },
   methods: {
     loadMapScenario() {
-      if (this.cur_mode)
+      if (this.cur_mode){
         this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
       /* No need to set credentials if already passed in URL */
           center: new Microsoft.Maps.Location(23.5, 120.58),
@@ -51,7 +51,13 @@ export default {
             settings: { landColor: '#fbf2ea' }
           }
         });
-      else 
+        var center = this.map.getCenter();
+        var polyline = new Microsoft.Maps.Polyline([new Microsoft.Maps.Location(24.8005253, 120.9907825),
+        new Microsoft.Maps.Location(24.7947253, 120.9932316),
+        new Microsoft.Maps.Location(24.789067, 120.999263)], { strokeColor: 'blue', strokeThickness: 5 });
+        this.map.entities.push(polyline);
+      }
+      else {
         this.map = new Microsoft.Maps.Map(document.getElementById('myMap'), {
     /* No need to set credentials if already passed in URL */
     center: new Microsoft.Maps.Location(23.5, 120.58),
@@ -68,6 +74,10 @@ export default {
           settings: { landColor: '#c1ebff' }
         }
       });
+      var pushpin = new Microsoft.Maps.Pushpin({latitude: 25.0173405,longitude: 121.5397518}, { icon:  '<svg xmlns="@/assets/img/svg/node_data/LocationMark.svg" width="50" height="50"><circle cx="25" cy="25" r="20" stroke="orange" stroke-width="4" fill="yellow" /></svg>',
+          anchor: new Microsoft.Maps.Point(12, 39) });
+        this.map.entities.push(pushpin);
+      }
     },
     cheat(locate){
       console.log("QAQ");
